@@ -107,7 +107,7 @@ clean:
 	cache/* figures/* cache*.*
 	
 realclean: clean
-	rm -f *.dvi *.ps *.pdf
+	rm -f *.dvi *.ps
 
 chapterlist:
 	grep chapter thecorpusbook.toc|sed "s/.*numberline {[0-9]\+}\(.*\).newline.*/\\1/" 

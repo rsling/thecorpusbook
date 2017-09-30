@@ -1,7 +1,9 @@
 % !Rnw root = ../smil.Rnw
-<<setup08, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
+<<setup10, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
 opts_knit$set(self.contained=FALSE)
 @
 
 \chapter{Advanced statistical modeling for corpus studies}
 \label{sec:advancedstatisticalmodelingforcorpusstudies}
+
+\citet{Senn2011}

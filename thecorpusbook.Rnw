@@ -13,9 +13,12 @@
 \input{localhyphenation.tex}
 \input{localcommands.tex} 
 
+% This contains everything from DGfS-CL Fall School 2017.
 \addbibresource{localbibliography.bib}
-\addbibresource{localbibliography-fb.bib}
-\addbibresource{localbibliography-rs.bib}
+
+% Add new entries here.
+% \addbibresource{localbibliography-fb.bib}
+% \addbibresource{localbibliography-rs.bib}
 
 \begin{document}     
 
@@ -37,8 +40,8 @@ opts_chunk$set(cache.path='cache/',
                fig.pos='H', message=FALSE,
                cache=TRUE, warning=FALSE,
                fig.align='center', comment ="",
-	             background='#F7F7F7',
-	             tidy=FALSE,
+	       background='#F7F7F7',
+	       tidy=FALSE,
                formatR.arrow = TRUE)
 
 
