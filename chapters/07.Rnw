@@ -1,0 +1,8 @@
+% !Rnw root = ../smil.Rnw
+<<setup07, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
+opts_knit$set(self.contained=FALSE)
+require(lme4, quietly = TRUE)
+@
+
+\chapter{Designing corpus studies and making queries}
+\label{sec:designingcorpusstudiesandmakingqueries}

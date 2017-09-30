@@ -1,0 +1,105 @@
+\addchap{Preface}
+
+\section*{What readers can expect from this book}
+
+This book has one primary purpose, which is to introduce students and practitioners to statistical methods in linguistics required to work with so-called \textit{(Generalised) Linear (Mixed) Models} (GLMMs for short).
+This family of methods has been used productively in linguistics, both in corpus linguistics (for example in the modeling of alternations in Probabilistic Grammar) as well as experimental (psycho-)linguistics, where it tends to supersede traditional ANOVAs (for example in the analysis of reading time data).
+While GLMMs are advanced methods, this book is self-contained, leading readers directly from the introduction of basic notions about data and statistics to GLMMs.
+Other methods like so-called \textit{descriptive statistics} and many statistical tests (like the t-test, $\chi^2$-test, the simple ANOVA, etc.) are explained in passing.
+
+The structure of each section within the chapters is the same, except in more general chapters like Chapters~\ref{sec:sciencedataandstatistics} and \ref{sec:recentdevelopmentsandoutlook} (and more general sections in the other chapters).
+First, readers are introduced to a statistical problem.
+Second, the method used to solve this problem is explained in some detail, including calculations ``by hand'' where possible.
+At the end of each chapter, it is shown how to implement the methods discussed in the chapter in R.
+The section on R can be skipped if readers are not interested in doing statistics themselves, or if another software package is used.
+Wherever possible, general sections and R sections close with exercises, and it is highly recommended that readers do all of them.
+
+Section~\ref{sec:hierarchicalmodels}
+
+The style of writing is (I hope) clear and concise, but I try to be comprehensive within the narrow focus of the book.
+While I try to avoid mathematical details where possible, this is simply not possible entirely.
+Practitioners who do not understand the \textit{full} output of standard R packages for estimating GLMMs, for example, cannot make good and responsible use of them.
+Understanding this output, however, requires some understanding of the role of the variance-covariance matrices in so-called \textit{mixed models} (see Chapter~\ref{sec:hierarchicalmodels}).
+Hence, variance-covariance matrices are introduced.
+
+After working through this book, readers should be able to use and understand GLMMs (and the other methods introduced in earlier chapters) confidently.
+Even more importantly, they will be in a position to consult text books written by statisticians, which often seem aloof or even arcane to practitioners.
+The most useful text books to me are \cite{FahrmeirEa2013}, \cite{Fox2016}, \cite{ZuurEa2009}, and above all \cite{GelmanHill2006}, all with different strengths and weaknesses.
+All of these references do not use linguistic examples, but there simply is no similar literature specifically written for linguists.
+Furthermore, they should know enough to consult online Q\&A sites (see below) and blogs, which have become a valuable source of guidance for many users of statistical methods.
+
+Finally, I want to point out that I often use simulated, artificial data for illustration purposes.
+Such made-up data sets make it easier to illustrate what kinds of data the method was designed for -- and was \textit{not} designed for.
+Also, many researchers do not make publicly available their data sets after publication, which limits a text book's author's options for choosing a data set for illustration.
+
+
+\section*{``Am I qualified to write this book?''}
+
+This is the question that anybody who is not a trained statistician and sets out to write a book about statistics should answer after taking a deep, overly critical look in the mirror and preferably in a phase of very low self-esteem and almost pathological modesty.
+Other -- usually more qualified -- people will answer this question anyway after the publication, so seeking an honest answer before beginning to write the book is actually a form of self protection.
+
+In a blog post entitled ``Statistics textbooks written by non-statisticians: Generally a Bad Idea'' (\url{http://vasishth-statistics.blogspot.de/2016/11/statistics-textbooks-written-by-non.html}), Shravan Vasishth of Potsdam University suggests that practitioners should not write this kind of text book. 
+He quotes from a statistics text book written by a psychologist, which contains in one paragraph several misconceptions about statistical power and Type I and Type II errors (see Chapter~\ref{sec:tests}).
+While I understand the frustration that motivated this blog post, I still think it is too extreme a measure to ban text books on statistics written by practitioners altogether.
+The typical errors and misconceptions in statistics text books, which rightly infuriate statisticians, are all related to the primordial sin of practitioners, which was blending the statistical paradigms of Ronald A.\ Fisher on the one hand and Jerzy Neyman and Egon Pearson on the other hand into the toxic slop referred to as Null Hypothesis Significance Testing (NHST; see Chapter~\ref{sec:sciencedataandstatistics}).
+This has led practitioners to apply recipe-like statistical protocols without a proper understanding of what they are actually 
+doing and -- even worse -- to make far-reaching inferences which are not warranted the data.
+To make matters worse, this ritualised approach to ``hypothesis testing'' (NHST) is usually combined with Popperian falsificationist rhetoric (see also Chapter~\ref{sec:sciencedataandstatistics}).
+Popperian falsificationism is declared to be the dominant methodological approach in \textit{all} (Western) sciences, NHST is declared as a quantitative implementation of Popperianism, and thus anything we do with statistical tests is exemplary rational and objective science.
+Anyone who proposes such types of arguments demonstrates that he or she has probably never read even a text book about the Philosophy of Science (such as \citealt{Chalmers2013}).
+
+However, it is easy for individual practitioners to overcome this deficient state by reading a reasonably small selection of excellent and even accessible references written by -- and this is crucial -- philosophers and statisticians, not other practitioners.
+Statistics as handed-down to students by practitioners is often not second-hand but rather $n$-hand wisdom, where $n$ is an arbitrarily high integer.
+Having done the necessary background reading, and having acquired a good understanding of the selection of methods that they use themselves, practitioners are, of course, qualified to write text books which provide basic introductions to selected methods and prepare students and colleagues for their own perusal of the original sources.
+Introductions by practitioners have the important function of introducing students and colleagues to a selection of methods relevant to their work.
+Furthermore, they make it easier to digest sometimes complicated matters by using examples from the field, and thus examples which readers can relate to.
+
+Therefore, I decided to write this text book.
+To avoid getting things wrong, I adopted the following principles:
+
+\begin{enumerate}
+  \item Try to be clear on your statistical philosophy and the kind of inferences warranted based on your methods!
+    This is the hardest part for anyone who is neither a statistician nor a philosopher.
+    In Chapter~\ref{sec:sciencedataandstatistics}, I \textit{try} to get things right, but I also encourage readers to be critical about that chapter, and to do some additional reading themselves.
+  \item Focus on \textit{one} (family of) method(s)!
+    In this case, I focused on Generalised Linear Models (GLMMs) and the methods needed to understand them.
+    Readers will not find a catalogue of all possible statistical tests used in linguistics, nor short introductions to clustering methods, Principal Component Analysis, etc.
+    The book starts from zero and leads directly to GLMMs, which do a lot of work both in corpus linguistics and experimental linguistics.
+  \item Make your explanations sufficiently detailed!
+    All-in-one text books to statistics in any field (for example linguistics) on two hundred or less pages will foster a culture of the recipe-like application of statistical methods which led to the current crisis of confidence in statistics in psychology, epidemiology, etc.\ (see Chapter~\ref{sec:sciencedataandstatistics}).
+  \item Separate the introduction to the methods themselves from the introduction to their implementation in R!
+    Again, this avoids training students to apply recipes in a software instead of understanding (to some degree at least) what they are doing.
+    Also, this makes the book attractive for users of other software packages, which is a nice by-effect.
+  \item Make everything open access and available long before publication!
+    This allows other practitioners and statisticians to audit the book before it is published, \ie before severe harm can be done.
+\end{enumerate}
+
+\section*{New types of sources and references}
+
+I take the open access and Creative Commons philosophy seriously.
+Also, I know that I have acquired a great deal of my knowledge of statistics not just by reading books and research papers, but from respected online sources.
+There are two main consequences for this book.
+
+First, I reuse material from online sources which are released under a compatible Creative Commons license.
+Most prominently, I reused parts of the R Wiki Book at \url{https://en.wikibooks.org/wiki/R_Programming} instead of writing yet another introduction to R basics, data manipulation in R, etc.
+These parts will be marked appropriately, of course, and due credit will be given to the original sources.
+Second, I quote from blogs written by renowned statisticians, from the Stanford Encyclopedia of Philosophy (\url{https://plato.stanford.edu/}), and from replies on the most important Q\&A website about statistics, \textit{CrossValidated} (\url{https://stats.stackexchange.com/}).
+Especially the blogs and contributions of the following people have been very inspiring and helpful, regardless of how often I reference them in this book (in alphabetical order):
+
+\begin{itemize}
+  \item BenBolker (\url{https://stats.stackexchange.com/users/2126/ben-bolker})
+  \item Andrew Gelman (\url{http://andrewgelman.com/})
+  \item Debora G.\ Mayo (\url{https://errorstatistics.com/})
+  \item Richard Morey (\url{http://bayesfactor.blogspot.de/})
+  \item Stephen Senn (\url{https://errorstatistics.com/tag/stephen-senn/})
+  \item as well as many contributors on R-bloggers (\url{https://www.r-bloggers.com/})
+\end{itemize}
+
+
+\section*{How this book was written}
+
+This book was created using \XeLaTeX, which is in many ways superior to the old \LaTeX.
+Mixing \XeLaTeX and R code was made easy and elegant by knitr (\url{https://yihui.name/knitr/}), and I recommend anyone to use these three pieces of software to typeset their documents whenever they use statistics.
+Additionally, RStudio was used, also for illustration.
+Since I run an RStudio Server at \url{https://webcorpora.org}, I could work on this book in a perfectly platform- and machine-independent way.
+GitHub (\url{https://github.com/rsling/smil}) provided version control, and the available sources on GitHub can be used by anyone to see how it is done.

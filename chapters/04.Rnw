@@ -1,0 +1,7 @@
+% !Rnw root = ../smil.Rnw
+<<setup04, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
+opts_knit$set(self.contained=FALSE)
+@
+
+\chapter{Classifying documents}
+\label{sec:classifyingdocuments}

@@ -1,0 +1,82 @@
+\documentclass[
+  nonewtxmath
+  , output=inprep
+  , nonflat
+  , modfonts
+  , colorlinks
+  , showindex
+%  , draftmode
+]{langsci/langscibook}
+  
+\input{localmetadata.tex}
+\input{localpackages.tex}
+\input{localhyphenation.tex}
+\input{localcommands.tex} 
+
+\addbibresource{localbibliography.bib}
+\addbibresource{localbibliography-fb.bib}
+\addbibresource{localbibliography-rs.bib}
+
+\begin{document}     
+
+\maketitle                
+\frontmatter
+
+\currentpdfbookmark{Contents}{name} 
+\tableofcontents
+\include{chapters/preface}
+\include{chapters/acknowledgments}
+\include{chapters/abbreviations} 
+\mainmatter  
+
+<< setup, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
+opts_knit$set(self.contained=FALSE)
+
+opts_chunk$set(cache.path='cache/',
+               fig.path='figures/',
+               fig.pos='H', message=FALSE,
+               cache=TRUE, warning=FALSE,
+               fig.align='center', comment ="",
+	             background='#F7F7F7',
+	             tidy=FALSE,
+               formatR.arrow = TRUE)
+
+
+render_listings()
+
+@
+
+<<child="chapters/01.Rnw">>=
+@
+
+<<child="chapters/02.Rnw">>=
+@
+
+<<child="chapters/03.Rnw">>=
+@
+
+<<child="chapters/04.Rnw">>=
+@
+
+<<child="chapters/05.Rnw">>=
+@
+
+<<child="chapters/06.Rnw">>=
+@
+
+<<child="chapters/07.Rnw">>=
+@
+
+<<child="chapters/08.Rnw">>=
+@
+
+<<child="chapters/09.Rnw">>=
+@
+
+<<child="chapters/10.Rnw">>=
+@
+
+% \input{localseealso.tex} 
+\input{backmatter.tex} 
+\end{document} 
+

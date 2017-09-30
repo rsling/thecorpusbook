@@ -1,0 +1,63 @@
+% By LSP.
+\renewbibmacro*{index:name}[5]{%
+  \usebibmacro{index:entry}{#1}
+    {\iffieldundef{usera}{}{\thefield{usera}\actualoperator}\mkbibindexname{#2}{#3}{#4}{#5}}}
+
+
+% By LSP.
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+
+
+% Fix line spacing in list environmens.
+\setlist{noitemsep}
+
+
+% RS abbreviations.
+\newcommand{\ie}{i.\,e.,\ }
+
+
+% Correct hyperref colors which otherwise give you eye cancer.
+\hypersetup{
+  linkbordercolor  = {white}
+  , linkcolor        = {lsMidDarkBlue}
+  , anchorcolor      = {lsMidWine}
+  , citecolor        = {lsDarkGreenOne}
+  , menucolor        = {lsMidDarkBlue}
+  , urlcolor         = {lsDarkOrange}
+%    , filecolor       = {}
+%    , runcolor        = {}
+}
+
+
+% Use a better mono font, ideal for code.
+% https://github.com/chrissimpkins/codeface/tree/master/fonts/inconsolata-g
+\setmonofont{Inconsolata-g}
+
+
+% Use a math font that actually works! Requires unicode-math paackage.
+% https://github.com/khaledhosny/libertinus
+\setmathfont[Scale=MatchUppercase]{libertinusmath-regular.otf}
+
+
+% Set listing style. knitr uses RStyle style. Which you have to know...
+\definecolor{listingbackground}{gray}{0.95}
+\lstdefinestyle{RStyle}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\ttfamily\color{lsDarkOrange},
+  stringstyle=\ttfamily\color{lsDarkBlue},
+  identifierstyle=\ttfamily\color{lsDarkGreenOne},
+  commentstyle=\ttfamily\color{lsLightBlue},
+  upquote=true,
+  breaklines=true,
+  backgroundcolor=\color{listingbackground},
+  framesep=5mm,
+  frame=trlb,
+  framerule=0pt,
+  linewidth=\dimexpr\textwidth-5mm,
+  xleftmargin=5mm
+  }
+\lstset{style=Rstyle}
+

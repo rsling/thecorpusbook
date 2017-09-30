@@ -1,0 +1,18 @@
+# Many things many linguists should know about the creation, evaluation, and use of corpora* (* But sometimes don't bother to ask.)
+
+Felix Bildhauer, Institut für Deutsche Sprache Mannheim
+Roland Schäfer, Freie Universität Berlin (alphabetically)
+
+CC-BY text book about corpus creation and use for linguists, based in DGfS-CL
+2017 Fall School course: http://rolandschaefer.net/?p=1382
+
+## Technical notes
+
+* The subdirectories **figures/** and **cache/** are for knitr-generated content only! Never check them in with git, never manually store anything in them!
+* Directory for custom images is **images/**
+* The Inconsolata-g font can be obtained here: http://www.fantascienza.net/leonardo/ar/inconsolatag/inconsolata-g_font.zip
+* Inconsolata-g installation on Ubuntu:
+
+> sudo mkdir /usr/share/fonts/truetype/customfonts
+> sudo cp Inconsolatar.ttf /usr/share/fonts/truetype/customfonts/
+> sudo fc-cache -fv

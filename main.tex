@@ -1,0 +1,188 @@
+\documentclass[output=inprep,
+  nonflat,
+  modfonts,
+%  colorlinks,
+  showindex,
+  draftmode
+]{langsci/langscibook}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\usepackage{Sweavel}
+
+
+  
+\input{localmetadata.tex}
+\input{localpackages.tex}
+\input{localhyphenation.tex}
+\bibliography{localbibliography} 
+
+\usepackage{lipsum}
+
+\setmonofont{Inconsolatar.ttf}
+
+\definecolor{listingbackground}{gray}{0.95}
+\lstdefinestyle{RStyle}{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\ttfamily\bfseries\color{lsDarkOrange},
+  stringstyle=\ttfamily\color{lsDarkBlue},
+  identifierstyle=\ttfamily\color{lsDarkGreenOne},
+  commentstyle=\ttfamily\color{lsLightBlue},
+  upquote=true,
+  breaklines=true,
+  backgroundcolor=\color{listingbackground},
+  framesep=5mm,
+  frame=trlb,
+  framerule=0pt,
+  linewidth=\dimexpr\textwidth-5mm,
+  xleftmargin=5mm
+  %numbers=left, numberstyle=\color{lsLightGray}, stepnumber=1, numbersep=10pt
+  }
+  
+\lstset{style=Rstyle}
+
+
+\begin{document}     
+
+\input{localcommands.tex} 
+ 
+\maketitle                
+\frontmatter
+
+\currentpdfbookmark{Contents}{name} 
+\tableofcontents
+\include{chapters/preface}
+\include{chapters/acknowledgments}
+\include{chapters/abbreviations} 
+\mainmatter         
+
+
+
+
+\chapter{Science, data, and statistics}
+\label{sec:sciencedataandstatistics}
+
+\cite{MacDonaldGardner2000}
+
+\tblssy[lsLightGray]{glass}{Test SY}{\lipsum[66]}
+
+\tblsli[lsLightGray]{1}{Test LI}{\lipsum[66]}
+
+\tblsfi[lsYellow]{Test FI}{\lipsum[66]}
+
+\tblsfr[lsYellow]{glass}{Test FR}{\lipsum[66]}
+
+\tblsfd{lsLightGray}{1}{Test FD}{\lipsum[66]}
+
+\pagebreak
+
+In this book, code listing are displayed as inline blocks such as the following simple code which simulates t-tests under the null hypothesis in order to demonstrate that all p-values have equal probability under the null.
+
+\begin{Schunk}
+\begin{Sinput}
+# Set simulation parameters.
+nsim  <- 1000
+n     <- 100
+meen  <- 0
+stdev <- 1
+
+# Data structure for results.
+sims <- rep(NA, nsim)
+
+# Simulations.
+for (i in 1:nsim) {
+  a <- rnorm(n, mean = meen, sd = stdev)
+  b <- rnorm(n, mean = meen, sd = stdev)
+  p <- t.test(a,b)$p.value
+  sims[i] <- p
+}
+\end{Sinput}
+\end{Schunk}
+
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\maxwidth]{/Users/user/Workingcopies/SMIL/figuressimttestscatter-1} 
+
+}
+
+\caption[Scatterplot of p-values]{Scatterplot of p-values.}\label{fig:simttestscatter}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\maxwidth]{/Users/user/Workingcopies/SMIL/figuressimttestecdf-1} 
+
+}
+
+\caption[Empirical cumulative density distribution of p-values]{Empirical cumulative density distribution of p-values.}\label{fig:simttestecdf}
+\end{figure}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\maxwidth]{/Users/user/Workingcopies/SMIL/figuressimttesthist-1} 
+
+}
+
+\caption[Histogram of p-values]{Histogram of p-values.}\label{fig:simttesthist}
+\end{figure}
+\end{Schunk}
+
+See Figure~\ref{fig:simttestecdf} for the cumulative density of p-values under the null in a series of 1000 t-tests.
+This was plotted using the following command.
+
+\begin{Schunk}
+\begin{Sinput}
+plot(ecdf(sims))
+\end{Sinput}
+\end{Schunk}
+
+
+\chapter{Describing data}
+\label{sec:describingdata}
+
+
+\chapter{Visualising data}
+\label{sec:visualisingdata}
+
+
+\chapter{Tests}
+\label{sec:tests}
+
+
+\chapter{Models}
+\label{sec:models}
+
+
+\chapter{Generalised models}
+\label{sec:generalisedmodels}
+
+
+\chapter{Mixed models}
+\label{sec:mixedmodels}
+
+
+
+
+\chapter{Where to go from here?}
+\label{sec:wheretogofromhere}
+
+% \input{localseealso.tex} 
+\input{backmatter.tex} 
+\end{document} 
+

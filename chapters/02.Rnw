@@ -1,0 +1,8 @@
+% !Rnw root = ../smil.Rnw
+<<setup02, cache=FALSE, echo=FALSE, include=FALSE, results='asis'>>=
+opts_knit$set(self.contained=FALSE)
+require(xtable, quietly = TRUE)
+@
+
+\chapter{Linguistic annotation}
+\label{sec:linguisticannotation}
